@@ -6,6 +6,7 @@ public:
 	double x;
 	double y;
 	Point(double x, double y);
+	Point();
 	bool operator==(const Point& p) const {
 		return this->x == p.x && this->y == p.y;
 	}

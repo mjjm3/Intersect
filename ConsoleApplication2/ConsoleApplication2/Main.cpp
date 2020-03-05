@@ -3,26 +3,37 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "Line.h"
 #include "Circle.h"
-int main()
+using namespace std;
+int main(int argc, char* argv[])
 {
+	ifstream in;
+	ofstream out;
+	if (argc != 5) {
+		cout << "wrong args" << endl;
+		return 1;
+	}
+	in.open(argv[2]);
+	out.open(argv[4]);
 	int N;
-	std::cin >> N;
+	in >> N;
 	std::vector<Line*> lines;
 	std::vector<Circle*> circles;
 	std::unordered_set<Point, PointHashFunc> set;
+	 
 	for (int i = 0; i < N; i++) {
 		char type;
-		std::cin >> type;
+		in >> type;
 		if (type == 'L') {
 			double x1, y1, x2, y2;
-			std::cin >> x1 >> y1 >> x2 >> y2;
+			in >> x1 >> y1 >> x2 >> y2;
 			lines.push_back(new Line(Point(x1, y1), Point(x2, y2)));
 		}
 		else {
 			double x, y, r;
-			std::cin >> x >> y >> r;
+			in >> x >> y >> r;
 			circles.push_back(new Circle(x, y, r));
 		}
 	}
@@ -56,17 +67,7 @@ int main()
 		}
 	}
 
-	std::cout << set.size() <<std::endl;
+	out << set.size() <<std::endl;
 	 
 }
-
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
-
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+ 
