@@ -2,10 +2,9 @@
 #include <unordered_set>
 #include <functional>
 class Point {
-private:
+public:
 	double x;
 	double y;
-public:
 	Point(double x, double y);
 	bool operator==(const Point& p) const {
 		return this->x == p.x && this->y == p.y;
