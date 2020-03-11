@@ -1,6 +1,6 @@
 # Intersect
 
-运行bin目录下ConsoleApplication2.exe
+运行bin目录下intersect.exe
 
-ConsoleApplication2.exe -i input.txt -o output.txt
+intersect -i input.txt -o output.txt
 
